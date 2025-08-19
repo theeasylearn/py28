@@ -24,8 +24,11 @@ simple if
 
 2) write a program to findout elder brother from two brother age. 
 
-4) write a program to accept month number from user and display name of the month
+3) write a program to accept month number from user and display name of the month
 -----------------------------------------------------------------------------------
+if else 
+1) write a program to findout which triangle is bigger from 2 triangle. accept base and height from user. 
 
+2) write a program to findout from which country user should buy IPhone. two countries are US & UK. assume person is indian. 
 
 
