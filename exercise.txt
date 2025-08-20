@@ -32,3 +32,34 @@ if else
 2) write a program to findout from which country user should buy IPhone. two countries are US & UK. assume person is indian. 
 
 
+if elif ladder 
+---------------
+1) write a program to calculate bmi and display obesity level of person from given height
+    (foot and inch) and weight (kg).
+
+2) write a program to accept month number from user and display name of the month
+
+
+3) write a program to accept day of week and then display divas and ratri choghadiya (switch statements)
+
+4) write a program to accept birth date and month from user. decide zodiac sign from below table 
+    Aries: March 21–April 19
+    Taurus: April 20–May 20
+    Gemini: May 21–June 21
+    Cancer: June 22–July 22
+    Leo: July 23–August 22
+    Virgo: August 23–September 22
+    Libra: September 23–October 22
+    Scorpio: October 24–November 21
+    Sagittarius: November 22–December 21
+    Capricorn: December 22–January 19
+    Aquarius: January 20–February 18
+    Pisces: February 19–March 20
+
+5) write a program to accept birth date and month of male & female. generate & display Zodiac Compatibility for marriage.
+use below image
+https://asknebula.com/images/zodiac-compatibility/zodiac-compatibility-chart.png
+
+
+nested if else 
+1) write a program to check whether given year is leap year or not. 
