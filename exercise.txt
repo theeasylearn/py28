@@ -63,3 +63,55 @@ https://asknebula.com/images/zodiac-compatibility/zodiac-compatibility-chart.png
 
 nested if else 
 1) write a program to check whether given year is leap year or not. 
+
+loop 
+---------------------
+   100  95  90  85  80  75  70  65  60  ..... 0
+   1    4   9   16  25  36  .... 1000
+   1    -8   27  -64  .....    1000
+   0    1   1   2   3   5   8   13  .... 100
+-------------------------
+9) write a program to findout only compound interest of given amount, rate, year 
+10) write a program to findout power of given base and exponent 
+
+11) write a program to make sum of all digit in given number 
+input : 12345 output : 15
+
+12) write a program to findout whether given number is palindrome 
+input : 12321 output 12321 this is palindrome
+input : 12345 output 54321 this is not palindrome
+
+13) write a program to display given amount into words 
+input : 12345 
+
+reverse : 54321
+output one two three four five 
+
+for loop 
+-------------------------------------------------------------------
+write a program to findout minimum marks & subject name and maximum marks and subject name from given dictionary 
+marks = {"Math": 88, "English": 75, "Science": 92, "History": 80, "Geography": 78, "Computer": 95}
+
+# write a program to count words, vowel, consent,digit and symbols in given string 
+
+nested loop 
+----------------------------
+    *
+   **
+  ***
+ ****
+*****
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+    1
+   0 1
+  1 0 1
+ 0 1 0 1
+0 1 0 1 0
+
+-------------------------------------------------------------
