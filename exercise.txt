@@ -66,26 +66,20 @@ nested if else
 
 loop 
 ---------------------
-   100  95  90  85  80  75  70  65  60  ..... 0
-   1    4   9   16  25  36  .... 1000
-   1    -8   27  -64  .....    1000
-   0    1   1   2   3   5   8   13  .... 100
+1   100  95  90  85  80  75  70  65  60  ..... 0
+2   1    4   9   16  25  36  .... 1000
+3   1    -8   27  -64  .....    1000
+4   0    1   1   2   3   5   8   13  .... 100
 -------------------------
-9) write a program to findout only compound interest of given amount, rate, year 
-10) write a program to findout power of given base and exponent 
-
-11) write a program to make sum of all digit in given number 
-input : 12345 output : 15
-
-12) write a program to findout whether given number is palindrome 
-input : 12321 output 12321 this is palindrome
-input : 12345 output 54321 this is not palindrome
-
-13) write a program to display given amount into words 
-input : 12345 
-
-reverse : 54321
-output one two three four five 
+5   write a program to findout only compound interest of given amount, rate, year 
+6   write a program to findout power of given base and exponent 
+7   write a program to findout whether given number is prime number or not 
+8   write a program to findout whether given number is perfect number or not 
+9   write a program to findout whether given number is palindrome 
+    input : 12321 output 12321 this is palindrome
+    input : 12345 output 54321 this is not palindrome
+10  write a program to display given amount into words 
+    input : 12345 output : one two three four five
 
 for loop 
 -------------------------------------------------------------------
