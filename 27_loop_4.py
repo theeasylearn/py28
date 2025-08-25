@@ -4,10 +4,8 @@
 '''
 number = int(input("Enter number")) #12345
 sum = 0 
-
 while number>0:
     remainder = number % 10 #5
     sum = sum + remainder
     number = number // 10 #1234
-
 print(sum)
