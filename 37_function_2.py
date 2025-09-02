@@ -7,10 +7,5 @@ x = int(input("Enter the value of x "))
 y = int(input("Enter the value of y "))
 
 print("both arg is given",nsquare(x,y))
-print("x=2",nsquare(x=x))
+print("x=2",nsquare(x=2))
 print ("y=3",nsquare(y=3))
-
-
-
-
-

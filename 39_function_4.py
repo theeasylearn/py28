@@ -1,5 +1,5 @@
 def getMerit(math,science,english,computer,history,drawing):
-    print(math,science,english,computer,history,drawing)
+    print(f"after Function maths={math},science={science},english={english},computer={computer},history={history},drawing={drawing}")
     total = math + science + english
     return	total
 
