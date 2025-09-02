@@ -1,4 +1,4 @@
-(x+y)**2 = x**2 + 2*X*y +y**2
+# (x+y)**2 = x**2 + 2*X*y +y**2
 def nsquare(x=0,y=0):
     seq = x*x + 2*x*y + y**2
     return seq
