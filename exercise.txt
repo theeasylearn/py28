@@ -135,3 +135,20 @@ nested loop
 *     *     *
 *           *
 * * * * * * *
+
+functions
+-----------------------------------------------
+1) create function that has arbitary arguments of string type and it display all strings into lower case.
+toLowerCase('Apple','bAnana','ManGO','KIWI','graps')
+output 
+    apple banana mango kiwi graps
+
+2) create function that returns average of player score of all 11 players (arbitary arguments)
+
+3) create function getSeconds which has hours, minutes and seconds which return total seconds 
+
+4) create lambda function which return compound interest of given amount, rate, year 
+
+5) create lambda function that return true if city passed as 1st argument exist in list passed argument as 2nd argument, if city does not exist return false 
+    isCityExist('Bhavnagar',['Bombay','Baroda','rajkot']) # false
+    isCityExist('rajkot',['Bombay','Baroda','rajkot']) # true 
