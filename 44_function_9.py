@@ -19,14 +19,3 @@
     13  print remainder
 0 0 0 1 
 '''
-#create function 
-def getBinary(number):
-    if number>0:
-        remainder = number % 2
-        number = number // 2
-        getBinary(number)
-        print(remainder,end=' ')
-        
-number = remainder = 0
-number = int(input("Enter number"))
-getBinary(number) #8

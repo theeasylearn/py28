@@ -11,8 +11,8 @@ print(r)
 
 def division(a,b):
     reminder = a%b
-    divident = a/b
-    return divident,reminder
+    dividend = a/b
+    return dividend,reminder
 
 a =int(input("Enter the value of a "))
 b =int(input("Enter the value of b "))

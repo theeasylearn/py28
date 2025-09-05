@@ -1,12 +1,11 @@
 # finding Factorial
 def factorial(n):
-    if n == 0:
-        print("invalid input")
-    elif n==1:
-        return 1
+    if n==1:
+        return n
     else:
-        return n * factorial(n-1)
+        n= n*factorial(n-1)
+        return n
 
-n = int(input("Enter the number for finding Factorial"))
-output = factorial(n)
-print("Factorial of", n, "is", output)
+n= int(input("Enter the number for find factorial "))
+a = factorial(n)
+print(f"factorial of {n} is {a}")
