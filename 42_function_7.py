@@ -1,14 +1,8 @@
-def lv(*vag):
-    for vags in vag:
-        print("vegetables is Leafy Greens",vags)
-        
-vegetables = [
-    "Spinach", "Kale", "Lettuce", "Swiss chard", "Arugula", "Collard greens", "Cabbage",
-    "Carrot", "Beetroot", "Turnip", "Radish", "Sweet potato", "Potato", "Parsnip",
-    "Broccoli", "Cauliflower", "Brussels sprouts", "Bok choy", "Cabbage",
-    "Onion", "Garlic", "Leek", "Shallot", "Spring onion",
-    "Tomato", "Cucumber", "Bell pepper", "Zucchini", "Eggplant", "Pumpkin", "Okra",
-    "Green beans", "Peas", "Snow peas", "Edamame",
-    "Asparagus", "Celery", "Rhubarb"]
-
-lv("Spinach", "Kale", "Cabbage")
+#example of lambda function 
+toDollar = lambda rupees : rupees/86
+getInterest = lambda amount,rate,year : (amount*rate*year) / 100
+getMax = lambda num1,num2 : num1>num2 
+print(toDollar(1000))
+print(getInterest(1000,10,2))
+print(getMax(10,20)) #false
+print(getMax(100,50)) #true
