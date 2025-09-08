@@ -1,17 +1,16 @@
 import math 
-number = float(input("Enter any one float number"))
+number = float(input("Enter any one float number")) # 7.12
+print(f"Original number = {number}") 
 
-print(f"floor value of {number} = ",math.floor(number))
-print(f"ceil value of {number} = ",math.ceil(number))
-print(f"truncated value of {number} = ",math.trunc(number))
-print(f"positive truncated value of {number} = ",math.fabs(math.trunc(number)))
-number = int(input('enter number'))
+print(f"ceil value of {number}",math.ceil(number))   #8
+print(f"floor value of {number}",math.floor(number)) #7
+print(f"truncated value of {number}",math.trunc(number)) # 7 
+print("{number} value before and after point")
+print(math.modf(number))
+print(f"10 % 3 = ",math.fmod(10,3)) # 1
+print(f"factorial of 6 ",math.factorial(6)) # 720
 
-print(f"factorial of {number} = ",math.factorial(number))
-print("modulas of 10%3",math.fmod(10,3))
-
-number = int(input('enter any one number(positive/negative)'))
-print(f" positive value of {number} ",math.fabs(number))
-print(f" number as negative  {number} ",math.copysign(-1,number))
-
+number = float(input("Enter any one integer number")) # 7.12
+print(f"absolute value of {number}",math.fabs(number)) 
+print(f"negative value of {number}",math.copysign(number,-1))
 
