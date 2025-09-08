@@ -152,3 +152,5 @@ output
 5) create lambda function that return true if city passed as 1st argument exist in list passed argument as 2nd argument, if city does not exist return false 
     isCityExist('Bhavnagar',['Bombay','Baroda','rajkot']) # false
     isCityExist('rajkot',['Bombay','Baroda','rajkot']) # true 
+
+    
