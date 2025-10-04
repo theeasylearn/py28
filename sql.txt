@@ -1,0 +1,63 @@
+how to insert new record into table using mysql
+--------------------------------------------------
+1st version syntax 
+insert into <tablename> values (value-1,value-2,value3);
+example
+insert into person values (0,'jay','parmar','m','jayparmar@gmail.com',45,'photo.jpg')
+insert into person values (0,'yashraj','parmar','m','yashrajparmar@gmail.com',40,'photo2.jpg')
+
+2nd version  example 
+-----------------------
+insert into <tablename> (field-1,field-2,field-3) values (value-1,value-2,value-3)
+insert into person (name,surname,email,photo) values ('komal','desai','komal@gmail.com','photo3.jpg');
+
+how to delete row from table 
+----------------------------------------
+delete all row 
+    syntax 
+        delete from <tablename>
+    example 
+        delete from person  
+
+    delete few rows (as per condition)
+    delete person whose id is 1 
+    
+    example 
+    delete from person where id = 1
+    
+how to delete all row and reset id 
+-----------------------------------
+    syntax 
+        truncate table <tablename>
+    example 
+        truncate table person
+
+how to update all rows 
+---------------------------
+update tablename set field-name-1 = value, [field-name-2 =value]
+
+example
+update all employee salary, set salary to 50000
+update person set salary=50000
+
+how to update specific rows 
+-----------------------------
+update tablename set field-name-1 = value, [field-name-2 =value] where condition
+
+example
+update gender,email,weight of person whose name is komal
+update person set gender='f',email='komaldesai100@gmail.com',weight=70 where name='komal'; 
+
+update salary by 10000 rupees of person whose name is yashraj and surname is parmar 
+update person set salary=salary+10000 where name='yashraj' and surname='parmar'
+
+
+
+how to fetch data from table(s)?
+-----------------------------------
+to fetch data from table(s), we use select command. select command is ready one sql command, it can not change/update date into table
+
+
+select *|<fieldnames> from tablesname [where condition] [group by fieldname ] [having fieldname] [order by fieldname] [limit offset]
+
+
