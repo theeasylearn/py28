@@ -6,17 +6,20 @@ this application will be used to maintain stock and generate bills for show owne
 --------------------------
 2 main module 
     Product management 
+        view product 
+        edit product 
         add new product 
         delete existing product 
-        edit product 
-        view product 
     bill management
         add product into bill 
-        delete  product from bill 
         view bill items 
+        delete  product from bill 
         save and print bill 
         get details of bill between given date 
         search for specific bill by name 
 
+Product 
+----------------------------------------
+id, name,price,stock,description,weight,size
 
 

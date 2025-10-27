@@ -38,7 +38,7 @@ while True:
             elif product_choice == 2:
                 print("provide option to edit product")
             elif product_choice == 3:
-                print("provide option to add new product")
+                
             elif product_choice == 4:
                 print("provide option to deleted product")
             elif product_choice == 0:
