@@ -23,3 +23,11 @@ Product
 id, name,price,stock,description,weight,size
 
 
+Bill
+-----------------------------------------
+id,fullname,billdate,mobile,amount,mode(payment mode)
+
+
+Item 
+---------------------------------------------
+id,productid,qty,price,billid(default 0)

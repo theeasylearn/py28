@@ -1,3 +1,5 @@
+import mysql
+import connection as con 
 while True:
     print("Press 1 for Bill management")
     print("Press 2 for Product management")
@@ -38,7 +40,15 @@ while True:
             elif product_choice == 2:
                 print("provide option to edit product")
             elif product_choice == 3:
-                
+                name = input("Enter product name ")
+                price = float(input("Enter product price "))
+                stock = int(input("Enter product stock "))
+                description = input("Enter product description ")
+                weight = float(input("Enter product weight "))
+                size = input("Enter product size ")
+                sql = "insert into product1 (name,price,stock,description, weight,size) values (%s,%s,%s,%s,%s,%s)"
+                data = [name,price,stock,description,weight,size]
+                con.run(sql,data,"Product added")
             elif product_choice == 4:
                 print("provide option to deleted product")
             elif product_choice == 0:
