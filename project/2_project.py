@@ -36,7 +36,18 @@ while True:
             print("press 0 to return to main menu ")
             product_choice = int(input("Enter your choice"))
             if product_choice == 1:
-                print("display all products")
+                try:
+                    sql = "select * from product order by id desc"
+                    table = con.fetch(sql)
+                    # print(table)
+                    header = f"{'ID':<5} {'Name':<48} {'Price':>8} {'Stock':>8} {'Weight':>10} {'Size':<10}"
+                    print(header)
+                    print("-"*100)
+                    for row in table:
+                        output = f"{row['id']:<5} {row['name']:<48} {row['price']:>8.2f} {row['stock']:>8} {row['weight']:>10.2f} {row['size']:<10}"
+                        print(output)
+                except mysql.connector.errors.ProgrammingError:
+                    print("oops something went wrong, contact developer")
             elif product_choice == 2:
                 print("provide option to edit product")
             elif product_choice == 3:
