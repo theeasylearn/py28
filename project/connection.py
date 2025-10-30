@@ -19,8 +19,8 @@ def run(sql,data,msg):
         print(msg)
         key = input("press any to continue....")
     except mysql.connector.errors.ProgrammingError as error:
-     print("oops something went wrong, contact developer")
-    
+        print("oops something went wrong, contact developer")
+        print(error)
 def fetch(sql):
     command = database.cursor(dictionary=True) #create cursor
     command.execute(sql)
