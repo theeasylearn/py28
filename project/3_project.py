@@ -31,18 +31,46 @@ while True:
     choice = int(input("Enter your choice"))
     if choice == 1:
         while True:
-            print("press 1 to view bill ")
-            print("press 2 to edit bill ")
-            print("press 3 to add new bill ")
+            print("press 1 to view items added into unsaved bill")
+            print("press 2 to add new item into bill ")
             print("press 4 to delete existing bill ")
             print("press 0 to return to main menu ")
             bill_choice = int(input("Enter your choice"))
             if bill_choice == 1:
-                print("display all bills")
+                sql = "select p.id 'id',name,p.price 'price',qty,weight,size from product p, item i where  p.id=productid and billid=0"
+                table = con.fetch(sql)
+                header = f"{'ID':<5} {'Name':<48} {'Price':>8} {'qty':>8} {'weight':>10} {'Size':<10}"
+                print(header)
+                print("-"*100)
+                for row in table:
+                    output = f"{row['id']:<5} {row['name']:<48} {row['price']:>8.2f} {row['qty']:>8} {row['weight']:>10.2f} {row['size']:<10}"
+                    print(output)
             elif bill_choice == 2:
-                print("provide option to edit bill")
-            elif bill_choice == 3:
-                print("provide option to add new bill")
+                displayProduct()
+                # accept productid and check is this product exists or not 
+                # if product does not exist display message invalid product id
+
+                # otherwise accept qty from user and then check stock is greater then qty 
+                # then insert row into item table, do not accept price from user 
+                productid = int(input("Enter product id"));
+                sql = "select price, stock from product where id =%s"
+                data = [productid]
+                table = con.fetch(sql,data)
+                length = len(table)
+                if length==0:
+                    print("Product not found")
+                else:
+                    stock = table[0]['stock']
+                    price = table[0]['price']
+                    print("Product found...")
+                    quantity = int(input("Enter quantity"))
+                    if quantity>stock:
+                        print(f"not enought stock, available stock = {stock}")
+                    else:
+                        print("Sufficient stock")
+                        sql = "insert into item (productid,qty,price) values (%s,%s,%s)"
+                        data = [productid,quantity,price]
+                        con.run(sql,data,'Item added into bill')
             elif bill_choice == 4:
                 print("provide option to deleted bill")
             elif bill_choice == 0:

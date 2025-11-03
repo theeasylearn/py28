@@ -21,8 +21,11 @@ def run(sql,data,msg):
     except mysql.connector.errors.ProgrammingError as error:
         print("oops something went wrong, contact developer")
         print(error)
-def fetch(sql):
+def fetch(sql,data=None):
     command = database.cursor(dictionary=True) #create cursor
-    command.execute(sql)
+    if data==None:
+        command.execute(sql)
+    else:
+        command.execute(sql,data)
     table = command.fetchall()
     return table
