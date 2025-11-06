@@ -15,6 +15,15 @@ def displayProduct():
     except mysql.connector.errors.ProgrammingError:
         print("oops something went wrong, contact developer")
 # function to take product detail as input
+def displayBillItem():
+    sql = "select i.id 'itemID',name,p.price 'price',qty,weight,size from product p, item i where  p.id=productid and billid=0"
+    table = con.fetch(sql)
+    header = f"{'itemID':<5} {'Name':<48} {'Price':>8} {'qty':>8} {'weight':>10} {'Size':<10}"
+    print(header)
+    print("-"*100)
+    for row in table:
+        output = f"{row['itemID']:<5} {row['name']:<48} {row['price']:>8.2f} {row['qty']:>8} {row['weight']:>10.2f} {row['size']:<10}"
+        print(output)
 def getInput():
     name = input("Enter product name ")
     price = float(input("Enter product price "))
@@ -33,18 +42,12 @@ while True:
         while True:
             print("press 1 to view items added into unsaved bill")
             print("press 2 to add new item into bill ")
+            print("Press 3 to generate final bill")
             print("press 4 to delete existing bill ")
             print("press 0 to return to main menu ")
             bill_choice = int(input("Enter your choice"))
             if bill_choice == 1:
-                sql = "select p.id 'id',name,p.price 'price',qty,weight,size from product p, item i where  p.id=productid and billid=0"
-                table = con.fetch(sql)
-                header = f"{'ID':<5} {'Name':<48} {'Price':>8} {'qty':>8} {'weight':>10} {'Size':<10}"
-                print(header)
-                print("-"*100)
-                for row in table:
-                    output = f"{row['id']:<5} {row['name']:<48} {row['price']:>8.2f} {row['qty']:>8} {row['weight']:>10.2f} {row['size']:<10}"
-                    print(output)
+                displayBillItem()
             elif bill_choice == 2:
                 displayProduct()
                 # accept productid and check is this product exists or not 
@@ -71,8 +74,30 @@ while True:
                         sql = "insert into item (productid,qty,price) values (%s,%s,%s)"
                         data = [productid,quantity,price]
                         con.run(sql,data,'Item added into bill')
+            elif bill_choice == 3:
+                print("you are going to save & print bill. saved bill can not be edited later on ")
+                confirm =  input("Are you sure (enter yes to confirm")
+                if confirm =='yes':
+                    '''
+                        display user how much Rs he has to collect from user 
+                        accept fullname, mobile and payment mode
+                        insert a new rom into bill table
+                        fetch last inserted row id of bill table
+                        reduce stock of each row in product table by quantity of the product in 
+                        update all the rows in bill table where billid = 0 set billid = iast inserted row id.
+                    '''
             elif bill_choice == 4:
-                print("provide option to deleted bill")
+                displayBillItem()
+                itemID = int(input("Enter item id to delete item from bill"))
+                sql = "select id from item where id=%s"
+                data = [itemID]
+                table = con.fetch(sql,data)
+                if len(table) == 0:
+                    print("Item not found")
+                else:
+                    sql = "delete from item where id=%s"
+                    data = [itemID]
+                    con.run(sql,data,"item has been removed from unsaved bill")
             elif bill_choice == 0:
                 print("return to main menu")
                 break # stop inner loop
