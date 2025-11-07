@@ -1,5 +1,6 @@
 import mysql
 import connection as con 
+total = 0
 # //create function to display product
 def displayProduct():
     try:
@@ -16,6 +17,7 @@ def displayProduct():
         print("oops something went wrong, contact developer")
 # function to take product detail as input
 def displayBillItem():
+    global total
     sql = "select i.id 'itemID',name,p.price 'price',qty,weight,size from product p, item i where  p.id=productid and billid=0"
     table = con.fetch(sql)
     header = f"{'itemID':<5} {'Name':<48} {'Price':>8} {'qty':>8} {'weight':>10} {'Size':<10}"
@@ -24,6 +26,9 @@ def displayBillItem():
     for row in table:
         output = f"{row['itemID']:<5} {row['name']:<48} {row['price']:>8.2f} {row['qty']:>8} {row['weight']:>10.2f} {row['size']:<10}"
         print(output)
+        total= total + (row['price'] * row['qty'])
+    print("-"*100)
+    print(f"total = {total}")
 def getInput():
     name = input("Enter product name ")
     price = float(input("Enter product price "))
@@ -79,13 +84,19 @@ while True:
                 confirm =  input("Are you sure (enter yes to confirm")
                 if confirm =='yes':
                     '''
-                        display user how much Rs he has to collect from user 
-                        accept fullname, mobile and payment mode
-                        insert a new rom into bill table
-                        fetch last inserted row id of bill table
-                        reduce stock of each row in product table by quantity of the product in 
-                        update all the rows in bill table where billid = 0 set billid = iast inserted row id.
+                    display shop owner how much Rs he has to collect from user 
+                    accept fullname, mobile and payment mode
+                    insert a new rom into bill table
+                    fetch last inserted row id of bill table
+                    reduce stock of each row in product table by quantity of the product in 
+                    update all the rows in item table where billid = 0 set billid = iast inserted row id.
                     '''
+                    fullname = input("Enter customer name")
+                    mobile = input("Enter mobile no")
+                    mode = input("Enter payment mode (Cash/Card/UPI)")
+                    sql = "INSERT INTO bill(fullname, mobile, amount, mode) VALUES (%s,%s,%s,%s)"
+                    data = [fullname,mobile,total,mode]
+                    con.run(sql,data,"bill generated successfully")
             elif bill_choice == 4:
                 displayBillItem()
                 itemID = int(input("Enter item id to delete item from bill"))
