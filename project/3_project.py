@@ -80,6 +80,7 @@ while True:
                         data = [productid,quantity,price]
                         con.run(sql,data,'Item added into bill')
             elif bill_choice == 3:
+                displayBillItem()
                 print("you are going to save & print bill. saved bill can not be edited later on ")
                 confirm =  input("Are you sure (enter yes to confirm")
                 if confirm =='yes':
@@ -88,8 +89,8 @@ while True:
                     accept fullname, mobile and payment mode
                     insert a new rom into bill table
                     fetch last inserted row id of bill table
-                    reduce stock of each row in product table by quantity of the product in 
                     update all the rows in item table where billid = 0 set billid = iast inserted row id.
+                    reduce stock of each row in product table by quantity of the product in 
                     '''
                     fullname = input("Enter customer name")
                     mobile = input("Enter mobile no")
@@ -97,6 +98,25 @@ while True:
                     sql = "INSERT INTO bill(fullname, mobile, amount, mode) VALUES (%s,%s,%s,%s)"
                     data = [fullname,mobile,total,mode]
                     con.run(sql,data,"bill generated successfully")
+                    #fetch last inserted row id of bill table
+                    sql = "select id from bill order by id desc limit 0,1"
+                    table = con.fetch(sql)
+                    last_inserted_row_id = table[0]['id']
+                    # update all the rows in item table where billid = 0 set billid = iast inserted row id.
+                    sql = "update item set billid=%s where billid=0"
+                    data = [last_inserted_row_id]
+                    con.run(sql,data,"items table updated successfully")
+                    #reduce stock of each row in product table by quantity of the product in 
+                    #fetch productid, quantity from item table 
+                    sql = "select productid,qty from item where billid=%s"
+                    data = [last_inserted_row_id]
+                    table = con.fetch(sql,data)
+                    for row in table:
+                        sql = "update product set stock=stock-%s where id=%s"
+                        data = [row['qty'],row['productid']]
+                        con.run(sql,data,'stock updated')
+                    print("transaction has been completed successfully")
+
             elif bill_choice == 4:
                 displayBillItem()
                 itemID = int(input("Enter item id to delete item from bill"))
